@@ -1,3 +1,3 @@
 # frat_webpage
 webpage for fraternity
-https://ahuerta6.github.io/frat_webpage/
+https://alh-org.github.io/frat/index.html
