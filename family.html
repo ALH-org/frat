@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pi Kappa Phi</title>
     <!-- Favicon-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -59,7 +59,7 @@
 
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
-        <div class="container1">
+        <div class="container">
             <!-- Portfolio Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Family Tree</h2>
             <!-- Icon Divider-->
@@ -105,4 +105,7 @@
             { key: 6, parent: 3, name: "Grandchild 3", color: "lightcoral" }
         ];
 
-        myDiagram.model = new go.Tree
+        myDiagram.model = new go.TreeModel(nodeDataArray);
+    </script>
+</body>
+</html>
