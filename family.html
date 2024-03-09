@@ -57,21 +57,8 @@
         </div>
     </nav>
 
-    <!-- Portfolio Section-->
-    <section class="page-section portfolio" id="portfolio">
-        <div class="container">
-            <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Family Tree</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Family Tree Diagram Container -->
-            <div id="familyTreeDiagram"></div>
-        </div>
-    </section>
+    <!-- Family Tree Diagram Container -->
+    <div id="familyTreeDiagram"></div>
 
     <!-- JavaScript for creating the family tree -->
     <script>
@@ -85,24 +72,19 @@
         myDiagram.nodeTemplate =
             $(go.Node, "Auto",
                 $(go.Shape, "Circle",
-                    { fill: "lightblue", strokeWidth: 0 },
-                    new go.Binding("fill", "color")),
+                    { fill: "lightblue", strokeWidth: 0 }),
                 $(go.TextBlock,
                     { margin: 8 },
                     new go.Binding("text", "name"))
             );
 
-        myDiagram.layout =
-            $(go.TreeLayout,
-                { angle: 90, layerSpacing: 40, nodeSpacing: 40 });
-
         var nodeDataArray = [
-            { key: 1, name: "Father", color: "lightblue" },
-            { key: 2, parent: 1, name: "Child 1", color: "lightgreen" },
-            { key: 3, parent: 1, name: "Child 2", color: "lightgreen" },
-            { key: 4, parent: 2, name: "Grandchild 1", color: "lightcoral" },
-            { key: 5, parent: 2, name: "Grandchild 2", color: "lightcoral" },
-            { key: 6, parent: 3, name: "Grandchild 3", color: "lightcoral" }
+            { key: 1, name: "Father" },
+            { key: 2, parent: 1, name: "Child 1" },
+            { key: 3, parent: 1, name: "Child 2" },
+            { key: 4, parent: 2, name: "Grandchild 1" },
+            { key: 5, parent: 2, name: "Grandchild 2" },
+            { key: 6, parent: 3, name: "Grandchild 3" }
         ];
 
         myDiagram.model = new go.TreeModel(nodeDataArray);
