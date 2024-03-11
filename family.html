@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Kappa Phi</title>
+    <!-- Favicon-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/PKP-logo.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- GoJS Library -->
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
+    <!-- Additional CSS for the family tree diagram -->
+    <style>
+        #familyTreeDiagram {
+            width: 100%;
+            height: 600px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/PKP-logo.png" alt="Pi Kappa Phi">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brothers.html">Brothers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="family.html">Family Tree</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Family Tree Diagram Container -->
+    <div id="familyTreeDiagram"></div>
+
+    <!-- JavaScript for creating the family tree -->
+    <script>
+        var $ = go.GraphObject.make;
+        var myDiagram =
+            $(go.Diagram, "familyTreeDiagram", {
+                initialContentAlignment: go.Spot.Center,
+                "undoManager.isEnabled": true
+            });
+
+        myDiagram.nodeTemplate =
+            $(go.Node, "Auto",
+                $(go.Shape, "Circle",
+                    { fill: "lightblue", strokeWidth: 0 }),
+                $(go.TextBlock,
+                    { margin: 8 },
+                    new go.Binding("text", "name"))
+            );
+
+        var nodeDataArray = [
+            { key: 1, name: "Father" },
+            { key: 2, parent: 1, name: "Child 1" },
+            { key: 3, parent: 1, name: "Child 2" },
+            { key: 4, parent: 2, name: "Grandchild 1" },
+            { key: 5, parent: 2, name: "Grandchild 2" },
+            { key: 6, parent: 3, name: "Grandchild 3" }
+        ];
+
+        myDiagram.model = new go.TreeModel(nodeDataArray);
+    </script>
+</body>
+</html>
