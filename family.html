@@ -83,12 +83,18 @@
             );
 
         var nodeDataArray = [
-            { key: "Javier",parent:"Chase", name: "Javier" }, // 
             { key: "Chase", name: "Chase" }, // 
+            { key: "Charlie", name: "Charlie" }, // Charlie Svestka
+            { key: "Tyler", name: "Tyler" }, // 
+            //Relations
+            { key: "Javier",parent:"Chase", name: "Javier" }, // 
             { key: "Mark", parent: "Spenser", name: "Mark" }, // 
             { key: "Malachi", parent: "Mark", name: "Malachi" }, // 
             { key: "Spenser", parent: "Tyler", name: "Spenser" }, // 
             { key: "Virat", parent: "Mark", name: "Virat" }, //
+            { key: "Denny", parent: "Alek", name: "Denny" }, //
+            { key: "Alek", parent: "Charlie", name: "Alek" }, // Child of Charlie Svestka
+            { key: "Josh", parent: "Charlie", name: "Josh" }, // Another child of Charlie Svestka
         ];
 
         myDiagram.model = new go.TreeModel(nodeDataArray);
