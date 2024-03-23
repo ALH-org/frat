@@ -81,9 +81,9 @@
         var nodeDataArray = [
             { key: "Javier", name: "Javier" }, // Javier is directly connected to Chase only
             { key: "Chase", name: "Chase" }, // Chase is directly connected to Javier only
-            { key: "Mark", parent: "Chase", name: "Mark" }, // Mark is indirectly connected to Chase (through Javier)
+            { key: "Mark", parent: "Spenser", name: "Mark" }, // Mark is indirectly connected to Chase (through Javier)
             { key: "Malachi", parent: "Mark", name: "Malachi" }, // Malachi is indirectly connected to Chase (through Javier and Mark)
-            { key: "Spenser", parent: "Mark", name: "Spenser" }, // Spenser is indirectly connected to Chase (through Javier and Mark)
+            { key: "Spenser", parent: "Tyler", name: "Spenser" }, // Spenser is indirectly connected to Chase (through Javier and Mark)
         ];
 
         myDiagram.model = new go.TreeModel(nodeDataArray);
