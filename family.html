@@ -66,7 +66,11 @@
         var myDiagram =
             $(go.Diagram, "familyTreeDiagram", {
                 initialContentAlignment: go.Spot.Center,
-                "undoManager.isEnabled": true
+                "undoManager.isEnabled": true,
+                layout: $(go.TreeLayout, {
+                    angle: 90,  // Angle the tree layout downward
+                    nodeSpacing: 20 // Adjust spacing between nodes
+                })
             });
 
         myDiagram.nodeTemplate =
@@ -79,11 +83,11 @@
             );
 
         var nodeDataArray = [
-            { key: "Javier", name: "Javier" }, // Javier is directly connected to Chase only
-            { key: "Chase", name: "Chase" }, // Chase is directly connected to Javier only
-            { key: "Mark", parent: "Spenser", name: "Mark" }, // Mark is indirectly connected to Chase (through Javier)
-            { key: "Malachi", parent: "Mark", name: "Malachi" }, // Malachi is indirectly connected to Chase (through Javier and Mark)
-            { key: "Spenser", parent: "Tyler", name: "Spenser" }, // Spenser is indirectly connected to Chase (through Javier and Mark)
+            { key: "Javier", name: "Javier" }, // 
+            { key: "Chase", name: "Chase" }, // 
+            { key: "Mark", parent: "Spenser", name: "Mark" }, // 
+            { key: "Malachi", parent: "Mark", name: "Malachi" }, // 
+            { key: "Spenser", parent: "Tyler", name: "Spenser" }, // S
         ];
 
         myDiagram.model = new go.TreeModel(nodeDataArray);
